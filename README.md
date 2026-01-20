@@ -1,0 +1,2 @@
+# GA
+Kod för Gymnasiearbete
