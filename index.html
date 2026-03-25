@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacebook</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <style>
+   /* ====== GLOBALT ====== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f2f7;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* ====== NAVBAR ====== */
+nav {
+    background: #1a73e8;
+    padding: 15px;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/* ====== HEADER ====== */
+header {
+    text-align: center;
+    padding: 30px 10px;
+    background: white;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 40px;
+    color: #1a73e8;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+
+.post img {
+    width: 100
+}
+
+/* ====== PROFILE HEADER BOX ====== */
+
+.profileCSS {
+    width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Profilens huvudtitel */
+.profileCSS h1 {
+    font-size: 36px;
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+/* Statistikrader */
+.profileCSS p {
+    font-size: 16px;
+    color: #444;
+    margin: 6px 0;
+}
+
+/* Sektionstitel för "All Posts" */
+.profileCSS h2 {
+    margin-top: 25px;
+    font-size: 24px;
+    color: #333;
+    border-top: 2px solid #eee;
+    padding-top: 15px;
+}
+
+.post {
+    text-align: center; /* Centrerar all text */
+}
+
+.post img {
+    display: block;
+    margin: 0 auto;     /* Centrerar bilden */
+}
+
+.post {
+    border: 2px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ====== COMMENTS ====== */
+
+.comment {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.comment-author:hover {
+    text-decoration: underline;
+}
+
+.post a {
+    color: #1a73e8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.post a:hover {
+    text-decoration: underline;
+}
+
+button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    background: #eee;
+    color: #333;
+    transition: 0.2s;
+}
+button:hover {
+    background: #ddd;
+}
+
+.like-btn {
+    background: none;
+    color: #888; /* grå när ej likad */
+    font-size: 20px;
+}
+
+.like-btn.liked {
+    color: #e63946; /* röd när likad */
+}
+
+.like-btn:hover {
+    transform: scale(1.1);
+}
+
+.follow-btn {
+    background: none;
+    border: 2px solid #333;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.follow-btn .icon {
+    margin-right: 6px;
+    font-weight: bold;
+}
+
+.follow-btn.following .icon {
+    display: none; /* plus försvinner */
+}
+
+.follow-btn.following {
+    background: #333;
+    color: white;
+}
+
+.comment-btn {
+    background: none;
+    font-size: 16px;
+}
+
+.delete-btn {
+    background: none;
+    color: #d93025;
+}
+.delete-btn:hover {
+    background: #ffe5e5;
+}
+
+.edit-btn {
+    background: none;
+    color: #f4a300;
+}
+.edit-btn:hover {
+    background: #fff3d6;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #444;
+    margin-bottom: 15px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px auto; /* centrerar + lite space under */
+}
+
+
+
+
+
+    
+
+    </style>
+
+      
+
+    <header>
+
+        
+
+        <nav>
+
+        <a href="/posts">Home</a>
+        <a href="/posts/create">Upload Post</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
+        <a id="profileLink" href="#">Profil</a>
+
+        
+            
+
+        </nav>
+            
+        <h1>PACEBOOK</h1>
+        <p>Your place to chat with your friends and upload things (better than Facebook)</p>
+       
+          </header>
+
+            <main>
+                  %content%
+
+    
+
+
+            </main>
+
+             <script>
+     fetch("/session-info")
+          .then(res => res.json())
+          .then(data => {
+      if (data.username) {
+          document.getElementById("profileLink").href =
+              "/profile/" + encodeURIComponent(data.username);
+     }
+    });
+</script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+</script>
+
+<script>
+socket.on("likeUpdate", data => {
+    const btn = document.querySelector(`button[data-post="${data.postId}"]`);
+    if (btn) {
+        btn.innerHTML = `❤ ${data.likes}`;
+    }
+});
+</script>
+
+<script>
+socket.on("newComment", data => {
+    const container = document.querySelector(`#comments-${data.postId}`);
+    if (container) {
+        container.innerHTML += `
+            <div class="comment">
+                <a href="/profile/${data.author}">${data.author}</a>: ${data.text}
+            </div>
+        `;
+    }
+});
+</script>
+
+<script>
+socket.on("followUpdate", data => {
+    const el = document.querySelector(`#followers-${data.username}`);
+    if (el) {
+        el.textContent = data.followers;
+    }
+});
+</script>
+
+
+
+
+
+
+</body>
+</html>

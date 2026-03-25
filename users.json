@@ -1,0 +1,93 @@
+[
+   {
+      "id": "id_1762937872925",
+      "email": "nempav0711@gmail.com",
+      "username": "NemanjaPavlovic0707",
+      "password": "$2b$12$dyHsNQY1Hd./Jv3TY4zW8u4yUybH0mjYUX7c7iDTcJlg4FeewMIuW",
+      "role": "user",
+      "followers": [
+         "N3X1 (Admin)",
+         "Lucas Schramm",
+         "N3X1_Admin"
+      ],
+      "following": [
+         "N3X1 (Admin)",
+         "N3X1_Admin"
+      ],
+      "profileImage": "d685cc5f96de7b2d28b3ca44332f3c35"
+   },
+   {
+      "id": "id_1762937884284",
+      "email": "n3x1.official@gmail.com",
+      "username": "N3X1_Admin",
+      "password": "$2b$12$As.L7rviJcabSX1RJEAcc.FftlUF15JWxjThcyV8kAOlSdYW7Zrha",
+      "role": "admin",
+      "followers": [
+         "NemanjaPavlovic0707"
+      ],
+      "following": [
+         "NemanjaPavlovic0707"
+      ],
+      "profileImage": "8973660516d9469cf37633263b09f5d4"
+   },
+   {
+      "id": "id_1764937461752",
+      "email": "nexiswe@gmail.com",
+      "username": "Nexi07",
+      "password": "$2b$12$uUEWGJTNKWMUiCkRJOW/UedURXASD4tWGauoBevGbMo8xBeKtgV7.",
+      "role": "user",
+      "followers": [],
+      "following": [],
+      "profileImage": "default.png"
+   },
+   {
+      "id": "id_1764940503173",
+      "email": "fredric@gmail.com",
+      "username": "Freddy",
+      "password": "$2b$12$XrO6UObPHtLjCPCXUQJP4eyBVIkzFRpWj8.9wPBsSGORpHsvjuMEy",
+      "role": "admin",
+      "followers": [],
+      "following": [],
+      "profileImage": "default.png"
+   },
+   {
+      "id": "id_1770118637907",
+      "email": "viktorb@gmail.nig",
+      "username": "crat",
+      "password": "$2b$12$7GyyieRir1XI63rHFa8sV.S0ACWiLYSYMW.IlKicb2yqGYUP3DhLu",
+      "role": "user",
+      "followers": [],
+      "following": [],
+      "profileImage": "default.png"
+   },
+   {
+      "id": "id_1770119187213",
+      "email": "jontegus@gmail.neg",
+      "username": "Jonte The African Man",
+      "password": "$2b$12$pgDPJlbqqSOGhEqkADgt.ORDIZB.SV44YeQoJl9evK1fHdDz22lDy",
+      "role": "user",
+      "followers": [],
+      "following": [],
+      "profileImage": "default.png"
+   },
+   {
+      "id": "id_1770203251880",
+      "email": "isakff@gmail.neg",
+      "username": "Isak Funkis",
+      "password": "$2b$12$wqy.HyJoGYpFo7CaZJkUyOq6UIstIv7.FERanvsGoVVCjySOkjOMe",
+      "role": "user",
+      "followers": [],
+      "following": [],
+      "profileImage": "default.png"
+   },
+   {
+      "id": "id_1770806776114",
+      "email": "lucas.schramm@gmail.com",
+      "username": "Lucas Schramm",
+      "password": "$2b$12$nx6/Rnth0dKN7q1R1u3qweidzqrVDe4pXpSV7wfVfA47nGYMPZKlS",
+      "role": "user",
+      "followers": [],
+      "following": [],
+      "profileImage": "default.png"
+   }
+]

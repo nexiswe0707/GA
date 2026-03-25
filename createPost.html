@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        /* ====== CREATE POST PAGE ====== */
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.create {
+    background: white;
+    padding: 25px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.create h2 {
+    margin-bottom: 20px;
+    color: #1a73e8;
+    font-size: 28px;
+}
+
+.create form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create input[type="file"],
+.create input[type="text"] {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.create input[type="file"]:hover,
+.create input[type="text"]:hover {
+    border-color: #1a73e8;
+}
+
+.create input[type="submit"] {
+    background: #1a73e8;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.create input[type="submit"]:hover {
+    background: #155ec0;
+}
+
+.create a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.create a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+
+    <main>
+        <div id="create" class = "create">
+        <h2>CREATE POST</h2>
+        <form action="/posts/create" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" placeholder="Upload Image">
+            <input type="text" name="desc" placeholder="Caption">
+            <input type="submit" value="CREATE">
+        </form>
+
+        <a href="/posts">Return To Home Page</a>
+
+    </div>
+    </main>
+    
+</body>
+</html>

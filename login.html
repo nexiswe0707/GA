@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacebook</title>
+</head>
+<body>
+
+    <style>
+   /* ====== REGISTER PAGE ====== */
+
+.create {
+    background: white;
+    padding: 25px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+    margin: 50px auto;
+}
+
+.create h2 {
+    margin-bottom: 20px;
+    color: #1a73e8;
+    font-size: 28px;
+}
+
+.create form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create input[type="email"],
+.create input[type="password"] {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.create input[type="email"]:hover,
+.create input[type="password"]:hover {
+    border-color: #1a73e8;
+}
+
+.create input[type="submit"] {
+    background: #1a73e8;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.create input[type="submit"]:hover {
+    background: #155ec0;
+}
+
+.create a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.create a:hover {
+    text-decoration: underline;
+}
+
+
+    </style>
+
+    <main>
+        <div class="create">
+           <h2>LOGIN</h2>
+        <form action="/login" method="post">
+          <input type="email" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+          <input type="submit" value="Login">
+
+          <a href="/posts">Return To Home Page</a>
+
+        </div>
+
+        
+    </main>
+    
+</body>
+</html>
