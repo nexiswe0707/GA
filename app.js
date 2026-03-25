@@ -12,6 +12,9 @@ const session = require("express-session")
 const escape = require("escape-html")
 const multer = require("multer");
 const upload = multer({ dest: "uploads/"});
+const profileUpload = multer({ dest: "profile_uploads/" });
+const postUpload = multer({ dest: "uploads/" });
+
 
 
 
@@ -25,6 +28,7 @@ function render(content){
 
 }
 
+app.use(express.urlencoded({extended:true}))
 
 app.use(session(
     {
@@ -44,9 +48,10 @@ app.get("/session-info", (req, res) => {
 
 
 
-app.use(express.urlencoded({extended:true}))
+
 
 app.use("/uploads", express.static("uploads"));
+app.use("/profile_uploads", express.static("profile_uploads"));
 
 app.get("/debug", (req, res) => {
     res.send(req.session);
@@ -413,7 +418,8 @@ app.get("/posts/edit/:id", log, (req, res) => {
 
 
 
-app.post("/posts/edit/:id", log, (req, res) => {
+app.post("/posts/edit/:id", log, postUpload.single("postImage"), (req, res) => {
+
     const id = Number(req.params.id);
     const posts = getData();
     const post = posts.find(p => p.id === id);
@@ -429,6 +435,10 @@ app.post("/posts/edit/:id", log, (req, res) => {
 
     // Update caption
     post.desc = req.body.desc;
+
+    if (req.file) {
+        post.image = req.file.filename;
+    }
 
     saveData(posts);
     res.redirect("/posts?edited=" + id);
@@ -605,7 +615,8 @@ if (req.session.username === user.username) {
     html = html.replace("{{uploadForm}}", "");
 }
 
-  
+    
+
 
 
 
@@ -633,9 +644,9 @@ if (req.session.username === user.username) {
     res.send(render(html, req));
 });
 
-const profileUpload = multer({ dest: "profile_uploads/" });
 
-app.post("/profile/upload", log, profileUpload.single("profileImage"), (req, res) => {
+
+app.post("/profile/upload", profileUpload.single("profileImage"), (req, res) => {
     const users = getUsers();
     const me = users.find(u => u.username === req.session.username);
 

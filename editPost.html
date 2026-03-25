@@ -9,7 +9,9 @@
 
     <main>
         <h2>Edit Post</h2>
-        <form action="/posts/edit/{{id}}" method="POST">
+        <form action="/posts/edit/{{id}}" method="POST" enctype="multipart/form-data">
+             <label>Change image:</label>
+            <input type="file" name="postImage" accept="image/*">
             <input type="text" name="desc" value="{{desc}}" placeholder="Caption">
             <input type="submit" value="Save Changes">
         </form>
@@ -17,5 +19,5 @@
         
     </main>
     
-</body>
+</body> 
 </html>
