@@ -1,15 +1,5 @@
 [
    {
-      "id": 1774427552474,
-      "desc": "rgrgrg",
-      "image": "1a61e1b46eafc3155b15f9b41e3f80d4",
-      "owner": "NemanjaPavlovic0707",
-      "likes": [
-         "nempav0711@gmail.com"
-      ],
-      "comments": []
-   },
-   {
       "id": 1774428540517,
       "desc": "hbk",
       "image": "e3d4aa2fbdd19ca1f027bcbcba048312",
@@ -17,6 +7,12 @@
       "likes": [
          "nempav0711@gmail.com"
       ],
-      "comments": []
+      "comments": [
+         {
+            "text": "biluhiku",
+            "author": "NemanjaPavlovic0707",
+            "time": 1774527301881
+         }
+      ]
    }
 ]

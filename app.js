@@ -586,6 +586,8 @@ app.get("/profile/:username", (req, res) => {
 
         {{uploadForm}}
 
+        {{followBtn}}
+
         <p><strong>Uploaded Posts:</strong> ${totalUploads}</p>
         <p><strong>Total Likes:</strong> ${totalLikes}</p>
         <p><strong>Followers:</strong> ${user.followers.length}</p>
@@ -622,15 +624,17 @@ if (req.session.username === user.username) {
 
     // ⭐ Följ-knapp (om det inte är din egen profil)
     if (req.session.username && req.session.username !== username) {
-        html += `
-            <form action="/follow/${username}" method="POST">
-                <button class="follow-btn ${user.followers.includes(req.session.username) ? 'following' : ''}">
-                        <span class="icon" id="followers-${username}">${user.followers.length}>+</span>
-                </button>
+    html = html.replace("{{followBtn}}", `
+        <form action="/follow/${username}" method="POST">
+            <button class="follow-btn ${user.followers.includes(req.session.username) ? 'following' : ''}">
+                <span class="icon" id="followers-${username}">${user.followers.length}</span>
+            </button>
+        </form>
+    `);
+} else {
+    html = html.replace("{{followBtn}}", "");
+}
 
-            </form>
-        `;
-    }
 
     // Visa alla poster användaren laddat upp
     html += userPosts.map(p => `
