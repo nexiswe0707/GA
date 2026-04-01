@@ -168,31 +168,6 @@ app.post("/posts/create", log, upload.single("image"), (req, res) => {
 });
 
 
-
-/*app.get("/posts/create", log, isAdmin, (req,res) =>{
-
-    //if(!req.session.auth) return res.send(render("FORBIDDEN"))
-
-    // Hämtar data från queryString
-    const post = req.query;
-    // Genererar ett unikt id.
-    product.id = Date.now();
-
-    // Hämtar alla posts -> detta blir en array
-    const allPosts = getData();
-
-    // Lägg till vår nya post i allPosts
-    allPosts.push(post);
-
-    // Spara alla posts till json fil med hjälp av vår nybyggda funktion som ligger i db.js
-    saveData(allPosts);
-
-    // Istället för att skicka data så skickar vi användaren tillbaka till route / där alla posts redan visas.
-    res.redirect("/posts")
-
-})*/
-
-
 app.post("/posts/delete/:id", log, (req,res) =>{
 
     // Hämta id från url via params
