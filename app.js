@@ -325,7 +325,7 @@ app.post("/posts/like/:id", log, (req, res) => {
         return res.redirect("/login");
     }
 
-    // ⭐ Toggle like
+    // Toggle like
     if (post.likes.includes(userEmail)) {
         post.likes = post.likes.filter(email => email !== userEmail);
     } else {
@@ -514,7 +514,7 @@ app.post("/follow/:username", log, (req, res) => {
 
     saveUsers(users);
 
-    // 🔥 WebSocket event
+    // WebSocket event
     io.emit("followUpdate", {
         username: target,
         followers: user.followers.length
@@ -597,7 +597,7 @@ if (req.session.username === user.username) {
 
 
 
-    // ⭐ Följ-knapp (om det inte är din egen profil)
+    //  Följ-knapp (om det inte är din egen profil)
     if (req.session.username && req.session.username !== username) {
     html = html.replace("{{followBtn}}", `
         <form action="/follow/${username}" method="POST">
